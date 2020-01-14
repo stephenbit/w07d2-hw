@@ -11,7 +11,17 @@
 </head>
 <body>
   <div id="app">
-
+    <h1>Convert some currency</h1>
+    <form>
+      <label for="">Amount:</label>
+      <input type="number" v-model="amountInput">
+      <label for="country_select">Select a currency:</label>
+      <select v-model="selectedCurrency">
+        <option disabled value="">Select a currency</option>
+        <option v-for="(currency, key) in currencies" v-bind:value="currency">{{key}}</option>
+      </select>
+      <h2>{{multiplyAmounts}}</h2>
+    </form>
   </div>
 </body>
 </html>
