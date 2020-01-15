@@ -5,24 +5,28 @@ document.addEventListener('DOMContentLoaded', () => {
     el: "#app",
     data: {
       currencies: {
-        name: "",
+        name: null,
         rate: null
       },
       amountInput: null,
       selectedCurrency: null
-      },
-      mounted(){
-        this.currencyFetch()
-      },
+    },
+    mounted: function () {
+      this.currencyFetch()
+    },
+    computed: {
+      multiplyAmounts: function(){
+      return 1
+    },
     methods: {
       currencyFetch: function(){
         fetch('https://api.exchangeratesapi.io/latest')
         .then(req => req.json())
         .then(data => this.currencies = data.rates)
-      },
+      }
       // write a method that multiplies
-      multiplyAmounts: function(){
-      this.amountInput *= selectedCurrency
-    )}
+
+      )}
+    }
+  })
   });
-});
